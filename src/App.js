@@ -3,11 +3,13 @@ import './App.css';
 import Card from './Card/Card';
 
 class App extends Component {
-  render() {
-    return (
-      <Card />
-    );
-  }
+	render() {
+		return (
+			<div>
+				<Card />
+			</div>
+		);
+	}
 }
 
 export default App;
