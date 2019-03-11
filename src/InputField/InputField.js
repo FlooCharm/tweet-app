@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import './InputField.css';
 
 class InputField extends Component {
 	render() {
 		return (
-			<div >
-			 CUAC
-			</div>
+			<input 
+				className='input-field'
+				value={this.props.value}
+				onChange={this.props.onChange}
+				type='text'
+				placeholder={this.props.placeholder}
+			/>
 		);
 	}
 }
