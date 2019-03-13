@@ -6,7 +6,7 @@ class CircleImg extends Component {
 	render() {
 		return (
 			<div className='circle'>
-				<img src={this.props.img || defaultImg}/>
+				<img src={this.props.img || defaultImg} alt=''/>
 			</div>
 		);
 	}

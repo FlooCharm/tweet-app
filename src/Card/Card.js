@@ -9,7 +9,7 @@ class Card extends Component {
 				<div className="img-container">
 					<CircleImg />
 				</div>
-				<div className="txt-container">txt</div>
+				{this.props.children}
 			</div>
 		);
 	}
