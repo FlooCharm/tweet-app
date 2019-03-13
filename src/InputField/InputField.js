@@ -4,8 +4,9 @@ import './InputField.css';
 class InputField extends Component {
 	render() {
 		return (
-			<input 
+			<textarea 
 				className='input-field'
+				rows="1"
 				value={this.props.value}
 				onChange={this.props.onChange}
 				type='text'

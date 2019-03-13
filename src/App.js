@@ -9,7 +9,17 @@ import moment from 'moment';
 class App extends Component {
 	state = {
 		newTweet: '',
-		tweets: []
+		tweets: [{
+			id: 1,
+			user: 'Roberto Huerta',
+			content: 'La Patata Kawaii :d',
+			time: '13/03/2019, 15:12'
+		}, {
+			id: 2,
+			user: 'Ricardo Martinez',
+			content: 'Tengo sed de la mala :v',
+			time: '10/03/2019, 14:05'
+		}]
 	}
 
 	onChangeText = (e) => {
@@ -20,11 +30,11 @@ class App extends Component {
 	tweet = (e) => {
 		e.preventDefault();
 
-		let time = moment().format('DD/MM/YYYY');
+		let time = moment().format('DD/MM/YYYY, HH:mm');
 		let content = this.state.newTweet;
 		let tweets = this.state.tweets;
-		tweets.push({
-			id: tweets.length,
+		tweets.unshift({
+			id: tweets.length + 1,
 			user: 'Jessica Sánchez',
 			content,
 			time
@@ -71,6 +81,7 @@ class App extends Component {
 					<PrimaryBtn 
 						text="Tweet"
 						type="submit"
+						disabled={!this.state.newTweet}
 						onClick={this.tweet}
 					/>
 				</form>

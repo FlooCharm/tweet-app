@@ -7,8 +7,16 @@
 	font-weight: bold;
 	color: white;
 	font-size: 14px;
+	cursor: pointer;
+	transition: opacity 0.5s ease-in-out;
 }
 
 .primary-btn:hover {
 	opacity: 0.9;
+}
+
+.primary-btn:disabled {
+	background-color: #1da1f2;
+	opacity: 0.4;
+	cursor: auto;
 }

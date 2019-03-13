@@ -1,9 +1,11 @@
 .input-field {
+	overflow: hidden;
 	outline: none;
 	border-radius: 5px;
 	padding: 0.75em;
 	border: 1px #4594da solid;
 	margin-bottom: 0.5em;
+	resize: none;
 }
 
 .input-field:focus {

@@ -6,6 +6,7 @@ class PrimaryBtn extends Component {
 		return (
 			<button 
 				className="primary-btn"
+				disabled={this.props.disabled}
 				onClick={this.props.onClick}
 				type='submit'
 			>
