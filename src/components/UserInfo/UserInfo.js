@@ -11,7 +11,7 @@ class UserInfo extends Component {
 					<div className='circle margin-right '>
 						<img src={this.props.img || defaultImg} alt=''/>
 					</div>
-					<input placeholder="Nombre" onChange={this.props.onChange}/>
+					<input className='name-input' placeholder="Escribe tu nombre" onChange={this.props.onChange}/>
 				</div>
 			</div>
 		);

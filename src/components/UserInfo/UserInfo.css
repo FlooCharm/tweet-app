@@ -31,3 +31,11 @@
 	height: 48px;
 	border-radius: 50%;
 }
+
+.name-input {
+	background: transparent;
+    border: 0;
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+}
