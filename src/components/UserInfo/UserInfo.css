@@ -1,0 +1,18 @@
+.container {
+	background: #10171e;
+	border: 1px solid #38444d;
+	padding: 16px;
+}
+
+.circle {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: #fff;
+}
+
+.circle img {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+}
