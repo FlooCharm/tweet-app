@@ -10,6 +10,7 @@ import moment from 'moment';
 
 class App extends Component {
 	state = {
+		user: '',
 		newTweet: '',
 		tweets: [{
 			id: 1,
@@ -42,6 +43,13 @@ class App extends Component {
 		});
 	}
 
+	onNameChange = (e) => {
+		let val = e.target.value;
+		this.setState({
+			user: val
+		});
+	}
+
 	onTextareaFocus = () => { 
 		if (!this.state.newTweet)
 			this.setState({ 
@@ -65,7 +73,7 @@ class App extends Component {
 		let tweets = this.state.tweets;
 		tweets.unshift({
 			id: tweets.length + 1,
-			user: 'Jessica Sánchez',
+			user: this.state.user,
 			content,
 			time
 		});
@@ -97,7 +105,7 @@ class App extends Component {
 				<Navbar />
 				<div className='content flex row justify-content-space-around'>
 					<div className='flex column'>
-						<UserInfo />
+						<UserInfo onChange={this.onNameChange}/>
 					</div>
 					<div className='flex flex07 column'>
 						<form className="form-container flex column align-items-flex-end">
