@@ -80,7 +80,8 @@ class App extends Component {
 		this.setState({ 
 			tweets, 
 			newTweet: '',
-			textareaRows: 1
+			textareaRows: 1,
+			showBtn: false
 		});
 	}
 
@@ -103,7 +104,7 @@ class App extends Component {
 		return (
 			<div className="app">
 				<Navbar />
-				<div className='content flex row justify-content-space-around'>
+				<div className='content flex row justify-content-center'>
 					<div className='flex column'>
 						<UserInfo onChange={this.onNameChange}/>
 					</div>
