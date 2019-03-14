@@ -23,7 +23,8 @@ class App extends Component {
 			time: '10/03/2019, 14:05'
 		}],
 		textareaRows: 1,
-		textareaHeight: 0
+		textareaHeight: 0,
+		showBtn: false
 	}
 
 	onChangeText = (e) => {
@@ -43,11 +44,17 @@ class App extends Component {
 
 	onTextareaFocus = () => { 
 		if (!this.state.newTweet)
-			this.setState({ textareaRows: 3 }) 
+			this.setState({ 
+				textareaRows: 3,
+				showBtn: true
+			}); 
 	}
 	onTextareaBlur = () => { 
 		if (!this.state.newTweet)
-			this.setState({ textareaRows: 1 }) 
+			this.setState({ 
+				textareaRows: 1, 
+				showBtn: false
+			});
 	}
 
 	tweet = (e) => {
@@ -88,12 +95,12 @@ class App extends Component {
 		return (
 			<div className="app">
 				<Navbar />
-				<div className='content flex row'>
+				<div className='content flex row justify-content-space-around'>
 					<div className='flex column'>
 						<UserInfo />
 					</div>
-					<div className='flex column'>
-						<form>
+					<div className='flex flex07 column'>
+						<form className="form-container flex column align-items-flex-end">
 							<InputField 
 								placeholder="What's happening?"
 								rows={this.state.textareaRows}
@@ -102,13 +109,14 @@ class App extends Component {
 								onBlur={this.onTextareaBlur}
 								onChange={this.onChangeText}
 							/>
-							<PrimaryBtn 
+							{ this.state.showBtn && <PrimaryBtn 
 								text="Tweet"
 								type="submit"
 								disabled={!this.state.newTweet}
 								onClick={this.tweet}
-							/>
+							/> }
 						</form>
+						<Divider />
 						{tweets}
 					</div>
 				</div>

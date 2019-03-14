@@ -7,8 +7,8 @@
 	border: 1px #4594da solid;
 	margin-bottom: 0.5em;
 	resize: none;
-	background-color: transparent;
-	width: 100%;
+	background-color: #10171e;
+	width: calc(100% - 1.5em);
 }
 
 .input-field:focus {
