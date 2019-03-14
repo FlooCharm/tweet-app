@@ -19,7 +19,7 @@
 
 .flex { display: flex; }
 
-.row { flex-direction: row; }
+.row { flex-direction: row; word-wrap: break-word; }
 .column { flex-direction: column; }
 
 .margin-right { margin-right: 8px; }

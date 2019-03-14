@@ -40,8 +40,13 @@ class App extends Component {
 		});
 	}
 
-	onTextareaFocus = () => {
-		this.setState({ textareaRows: 3 });
+	onTextareaFocus = () => { 
+		if (!this.state.newTweet)
+			this.setState({ textareaRows: 3 }) 
+	}
+	onTextareaBlur = () => { 
+		if (!this.state.newTweet)
+			this.setState({ textareaRows: 1 }) 
 	}
 
 	tweet = (e) => {
@@ -58,7 +63,8 @@ class App extends Component {
 		});
 		this.setState({ 
 			tweets, 
-			newTweet: ''
+			newTweet: '',
+			textareaRows: 1
 		});
 	}
 
@@ -88,6 +94,7 @@ class App extends Component {
 							rows={this.state.textareaRows}
 							value={this.state.newTweet}
 							onFocus={this.onTextareaFocus}
+							onBlur={this.onTextareaBlur}
 							onChange={this.onChangeText}
 						/>
 						<PrimaryBtn 

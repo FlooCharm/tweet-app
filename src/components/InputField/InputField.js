@@ -10,6 +10,7 @@ class InputField extends Component {
 				rows={this.props.rows}
 				onChange={this.props.onChange}
 				onFocus={this.props.onFocus}
+				onBlur={this.props.onBlur}
 				type='text'
 				placeholder={this.props.placeholder}
 			/>

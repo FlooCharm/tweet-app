@@ -8,6 +8,7 @@ class Navbar extends Component {
 				<img
 					className='icon'
 					src='http://www.logospng.com/images/2/twitter-logo-vector-by-oguzhanbahardesign-on-deviantart-2414.png'
+					alt=''
 				/>
 			</div>
 		);
