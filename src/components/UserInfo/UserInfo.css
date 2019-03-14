@@ -1,6 +1,21 @@
+.row { flex-direction: row; }
+.column { flex-direction: column; }
+.margin-right { margin-right: 8px; }
+
 .container {
 	background: #10171e;
 	border: 1px solid #38444d;
+}
+
+.blue-container {
+	background: #1da1f2;
+	width: auto;
+	height: 95px;
+}
+
+.txt-container {
+	display: flex;
+	flex-direction: row;
 	padding: 16px;
 }
 

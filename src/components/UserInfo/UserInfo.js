@@ -5,9 +5,13 @@ import defaultImg from '../../assets/default-avatar.png'
 class UserInfo extends Component {
 	render() {
 		return (
-			<div className='container'>
-				<div className='circle'>
-					<img src={this.props.img || defaultImg} alt=''/>
+			<div className='container flex column'>
+				<div className='blue-container'/>
+				<div className='txt-container'>
+					<div className='circle margin-right '>
+						<img src={this.props.img || defaultImg} alt=''/>
+					</div>
+					<input placeholder="Nombre" onChange={this.props.onChange}/>
 				</div>
 			</div>
 		);
