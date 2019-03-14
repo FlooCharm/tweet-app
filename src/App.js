@@ -80,7 +80,8 @@ class App extends Component {
 		this.setState({ 
 			tweets, 
 			newTweet: '',
-			textareaRows: 1
+			textareaRows: 1,
+			showBtn: false
 		});
 	}
 
