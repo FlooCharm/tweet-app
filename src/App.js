@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
 import Tweet from './components/Tweet';
 import Divider from './components/Divider';
 import InputField from './components/InputField';
@@ -75,21 +76,24 @@ class App extends Component {
 
 		return (
 			<div className="app">
-				<form>
-					<InputField 
-						placeholder="What's happening?"
-						rows={this.state.textareaRows}
-						value={this.state.newTweet}
-						onChange={this.onChangeText}
-					/>
-					<PrimaryBtn 
-						text="Tweet"
-						type="submit"
-						disabled={!this.state.newTweet}
-						onClick={this.tweet}
-					/>
-				</form>
-				{tweets}
+				<Navbar />
+				<div className='content'>
+					<form>
+						<InputField 
+							placeholder="What's happening?"
+							rows={this.state.textareaRows}
+							value={this.state.newTweet}
+							onChange={this.onChangeText}
+						/>
+						<PrimaryBtn 
+							text="Tweet"
+							type="submit"
+							disabled={!this.state.newTweet}
+							onClick={this.tweet}
+						/>
+					</form>
+					{tweets}
+				</div>
 			</div>
 		);
 	}

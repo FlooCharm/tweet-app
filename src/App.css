@@ -2,6 +2,10 @@ body {
 	background: #10171e;
 }
 
+.content {
+	margin-top: 50px;
+}
+
 /* flexbox */
 .flex {
 	display: flex;
