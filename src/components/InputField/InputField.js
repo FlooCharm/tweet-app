@@ -9,6 +9,7 @@ class InputField extends Component {
 				value={this.props.value}
 				rows={this.props.rows}
 				onChange={this.props.onChange}
+				onFocus={this.props.onFocus}
 				type='text'
 				placeholder={this.props.placeholder}
 			/>

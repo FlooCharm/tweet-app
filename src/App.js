@@ -39,6 +39,10 @@ class App extends Component {
 		});
 	}
 
+	onTextareaFocus = () => {
+		this.setState({ textareaRows: 3 });
+	}
+
 	tweet = (e) => {
 		e.preventDefault();
 
@@ -80,6 +84,7 @@ class App extends Component {
 						placeholder="What's happening?"
 						rows={this.state.textareaRows}
 						value={this.state.newTweet}
+						onFocus={this.onTextareaFocus}
 						onChange={this.onChangeText}
 					/>
 					<PrimaryBtn 
