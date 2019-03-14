@@ -6,8 +6,8 @@ class InputField extends Component {
 		return (
 			<textarea 
 				className='input-field'
-				rows="1"
 				value={this.props.value}
+				rows={this.props.rows}
 				onChange={this.props.onChange}
 				type='text'
 				placeholder={this.props.placeholder}

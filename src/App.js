@@ -19,12 +19,24 @@ class App extends Component {
 			user: 'Ricardo Martinez',
 			content: 'Tengo sed de la mala :v',
 			time: '10/03/2019, 14:05'
-		}]
+		}],
+		textareaRows: 1,
+		textareaHeight: 0
 	}
 
 	onChangeText = (e) => {
+		let textareaHeight = e.target.scrollHeight;
 		let val = e.target.value;
-		this.setState({ newTweet: val });
+		let textareaRows = this.state.textareaRows;
+
+		if (textareaHeight > this.state.textareaHeight && this.state.textareaHeight)
+			textareaRows++;
+
+		this.setState({ 
+			newTweet: val,
+			textareaHeight,
+			textareaRows
+		});
 	}
 
 	tweet = (e) => {
@@ -75,6 +87,7 @@ class App extends Component {
 				<form>
 					<InputField 
 						placeholder="What's happening?"
+						rows={this.state.textareaRows}
 						value={this.state.newTweet}
 						onChange={this.onChangeText}
 					/>
