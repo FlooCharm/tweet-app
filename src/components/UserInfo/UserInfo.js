@@ -8,7 +8,7 @@ class UserInfo extends Component {
 			<div className='container flex column'>
 				<div className='blue-container'/>
 				<div className='txt-container'>
-					<div className='circle margin-right '>
+					<div className='info-circle margin-right'>
 						<img src={this.props.img || defaultImg} alt=''/>
 					</div>
 					<input className='name-input' placeholder="Escribe tu nombre" onChange={this.props.onChange}/>
