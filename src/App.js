@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './Card';
-import Text from './Text';
-import InputField from './InputField';
-import PrimaryBtn from './PrimaryBtn';
+import Tweet from './components/Tweet';
+import InputField from './components/InputField';
+import PrimaryBtn from './components/PrimaryBtn';
 import moment from 'moment';
 
 class App extends Component {
@@ -59,27 +58,12 @@ class App extends Component {
 
 	render() {
 		const tweets = this.state.tweets.map((item) =>
-			<Card key={item.id}>
-				<div className="flex column">
-					<div className="flex row">
-						<div className="margin-right">
-							<Text 
-								weight='bold'
-								color='white'
-								text={item.user}
-							/>
-						</div>
-						<Text 
-							color='grey'
-							text={item.time}
-						/>
-					</div>
-					<Text 
-						color='white'
-						text={item.content}
-					/>
-				</div>
-			</Card>
+			<Tweet 
+				key={item.id}
+				user={item.user}
+				time={item.time}
+				content={item.content}
+			/>
 		);
 
 		return (

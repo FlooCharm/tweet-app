@@ -15,8 +15,9 @@
 	align-items: center;
 }
 
-.txt-container {
-	display: flex;
-	/*flex: 9;*/
-	flex-direction: column;
-}
+.flex { display: flex; }
+
+.row { flex-direction: row; }
+.column { flex-direction: column; }
+
+.margin-right { margin-right: 8px; }
