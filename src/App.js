@@ -23,7 +23,7 @@ class App extends Component {
 			content: 'Tengo sed de la mala :v',
 			time: '10/03/2019, 14:05'
 		}, {
-			id: 2,
+			id: 3,
 			user: 'Gustavo Pacheco',
 			content: 'Un juguito de maldad por la mañana no está nada mal >:)',
 			time: '12/03/2019, 8:26'
