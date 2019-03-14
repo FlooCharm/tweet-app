@@ -9,7 +9,10 @@ body {
 
 /* flexbox */
 .flex { display: flex; }
-.flex07 { flex: 0.7; }
+.flex07 { 
+	flex: 0.7; 
+	margin-left: 1em;
+}
 
 .row { flex-direction: row; }
 .column { flex-direction: column; }
