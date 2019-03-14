@@ -1,9 +1,11 @@
 .card {
 	display: flex;
 	flex-direction: row;
-	background: #171f2a;
+	background: #15202b;
 	color: #fff;
 	padding: 9px 12px;
+	border-right: 1px solid #38444d;
+	border-left: 1px solid #38444d;
 }
 
 .img-container {

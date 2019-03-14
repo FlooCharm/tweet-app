@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Tweet from './components/Tweet';
+import Divider from './components/Divider';
 import InputField from './components/InputField';
 import PrimaryBtn from './components/PrimaryBtn';
 import moment from 'moment';
@@ -57,14 +58,20 @@ class App extends Component {
 	}
 
 	render() {
-		const tweets = this.state.tweets.map((item) =>
-			<Tweet 
-				key={item.id}
-				user={item.user}
-				time={item.time}
-				content={item.content}
-			/>
-		);
+		const tweets = this.state.tweets.map((item, index) => {
+			let separator = index < this.state.tweets.length ? (<Divider />) : null;
+			return (
+				<div key={item.id}>
+					<Tweet 
+						key={item.id}
+						user={item.user}
+						time={item.time}
+						content={item.content}
+					/>
+					{separator}
+				</div>
+			)
+		});
 
 		return (
 			<div className="app">
