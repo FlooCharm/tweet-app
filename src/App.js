@@ -22,6 +22,11 @@ class App extends Component {
 			user: 'Ricardo Martinez',
 			content: 'Tengo sed de la mala :v',
 			time: '10/03/2019, 14:05'
+		}, {
+			id: 2,
+			user: 'Gustavo Pacheco',
+			content: 'Un juguito de maldad por la mañana no está nada mal >:)',
+			time: '12/03/2019, 8:26'
 		}],
 		textareaRows: 1,
 		textareaHeight: 0,

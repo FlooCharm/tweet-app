@@ -12,6 +12,7 @@ body {
 .flex07 { 
 	flex: 0.7; 
 	margin-left: 1em;
+	word-break: break-all;
 }
 
 .row { flex-direction: row; }
