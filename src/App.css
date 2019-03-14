@@ -1,3 +1,7 @@
+body {
+	background: #10171e;
+}
+
 /* flexbox */
 .flex {
 	display: flex;
