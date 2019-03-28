@@ -11,6 +11,7 @@ import moment from 'moment';
 class App extends Component {
 	state = {
 		user: '',
+		avatar: '',
 		newTweet: '',
 		tweets: [],
 		textareaRows: 1,
@@ -76,21 +77,50 @@ class App extends Component {
 	tweet = (e) => {
 		e.preventDefault();
 
-		let time = new Date();
-		let content = this.state.newTweet;
+		let created_at = new Date();
+		let updated_at = new Date();
+		let description = this.state.newTweet;
 		let tweets = this.state.tweets;
-		tweets.unshift({
-			id: tweets.length + 1,
-			user: this.state.user,
-			content,
-			time
-		});
-		this.setState({ 
-			tweets, 
-			newTweet: '',
-			textareaRows: 1,
-			showBtn: false
-		});
+		let avatar = this.state.avatar;
+
+		let data = {
+			avatar,
+			user_name: this.state.user,
+			description,
+			created_at,
+			updated_at,
+		}
+
+		// fetch('https://still-garden-88285.herokuapp.com/draft_tweets', {
+		fetch('http://192.168.100.7:3000/draft_tweets', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(data)
+		})
+			.then(response => response.json())
+			.then((res) => {
+				let { id, avatar, user_name, description, created_at } = res.draft_tweet;
+				tweets.unshift({
+					id,
+					avatar,
+					user: user_name,
+					description,
+					time: created_at
+				});
+				this.setState({ 
+					tweets, 
+					newTweet: '',
+					textareaRows: 1,
+					showBtn: false
+				});
+			}, (error) => {
+				this.setState({
+					isLoaded: false,
+					error: true
+				})
+			});
 	}
 
 	render() {

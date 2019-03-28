@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './UserInfo.css';
-import defaultImg from '../../assets/default-avatar.png'
+// import defaultImg from '../../assets/default-avatar.png'
+import defaultImg from '../../assets/cuac.PNG'
 
 class UserInfo extends Component {
 	render() {
