@@ -12,25 +12,28 @@ class App extends Component {
 	state = {
 		user: '',
 		newTweet: '',
-		tweets: [{
-			id: 1,
-			user: 'Roberto Huerta',
-			content: 'La Patata Kawaii :d',
-			time: '13/03/2019, 15:12'
-		}, {
-			id: 2,
-			user: 'Ricardo Martinez',
-			content: 'Tengo sed de la mala :v',
-			time: '10/03/2019, 14:05'
-		}, {
-			id: 3,
-			user: 'Gustavo Pacheco',
-			content: 'Un juguito de maldad por la mañana no está nada mal >:)',
-			time: '12/03/2019, 8:26'
-		}],
+		tweets: [],
 		textareaRows: 1,
 		textareaHeight: 0,
-		showBtn: false
+		showBtn: false,
+		error: false,
+		isLoaded: false
+	}
+
+	componentDidMount () {
+		fetch('https://still-garden-88285.herokuapp.com/draft_tweets')
+			.then(response => response.json())
+			.then((res) => {
+				this.setState({ 
+					tweets: res.draft_tweets.reverse(),
+					isLoaded: false
+				})
+			}, (error) => {
+				this.setState({
+					isLoaded: false,
+					error: true
+				})
+			});
 	}
 
 	onChangeText = (e) => {
@@ -73,7 +76,7 @@ class App extends Component {
 	tweet = (e) => {
 		e.preventDefault();
 
-		let time = moment().format('DD/MM/YYYY, HH:mm');
+		let time = new Date();
 		let content = this.state.newTweet;
 		let tweets = this.state.tweets;
 		tweets.unshift({
@@ -93,13 +96,15 @@ class App extends Component {
 	render() {
 		const tweets = this.state.tweets.map((item, index) => {
 			let separator = index < this.state.tweets.length ? (<Divider />) : null;
+			let createdAt = moment(item.created_at).format('DD/MM/YYYY, HH:mm');
 			return (
 				<div key={item.id}>
 					<Tweet 
+						avatar={item.avatar}
 						key={item.id}
-						user={item.user}
-						time={item.time}
-						content={item.content}
+						user={item.user_name}
+						time={createdAt}
+						content={item.description}
 					/>
 					{separator}
 				</div>
@@ -126,12 +131,14 @@ class App extends Component {
 							{ this.state.showBtn && <PrimaryBtn 
 								text="Tweet"
 								type="submit"
-								disabled={!this.state.newTweet}
+								disabled={(!this.state.newTweet && !this.state.user) ? true: false }
 								onClick={this.tweet}
 							/> }
 						</form>
 						<Divider />
-						{tweets}
+						<div className="margin-bottom">
+							{tweets}
+						</div>
 					</div>
 				</div>
 			</div>

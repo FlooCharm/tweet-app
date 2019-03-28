@@ -9,7 +9,9 @@ class Tweet extends Component {
 		return (
 			<div className="card">
 				<div className="img-container">
-					<CircleImg/>
+					<CircleImg
+						img={this.props.avatar}
+					/>
 				</div>
 				<div className="flex column">
 					<div className="flex row">
