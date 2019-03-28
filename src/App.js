@@ -11,7 +11,7 @@ import moment from 'moment';
 class App extends Component {
 	state = {
 		user: '',
-		avatar: '',
+		avatar: 'https://raw.githubusercontent.com/FlooCharm/tweet-app/master/src/assets/cuac.PNG',
 		newTweet: '',
 		tweets: [],
 		textareaRows: 1,
@@ -91,8 +91,7 @@ class App extends Component {
 			updated_at,
 		}
 
-		// fetch('https://still-garden-88285.herokuapp.com/draft_tweets', {
-		fetch('http://192.168.100.7:3000/draft_tweets', {
+		fetch('https://still-garden-88285.herokuapp.com/draft_tweets', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -105,9 +104,9 @@ class App extends Component {
 				tweets.unshift({
 					id,
 					avatar,
-					user: user_name,
+					user_name,
 					description,
-					time: created_at
+					created_at
 				});
 				this.setState({ 
 					tweets, 
